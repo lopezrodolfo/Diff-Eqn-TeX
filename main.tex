@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Applied Math HW}
+\author{Rodolfo Lopez}
+\date{February 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem}
+Find the general solution to $y' + 15t^{14}y = t^{15}.$
+Use the variable $I = \int e^{t^{15}}dt$ where it occurs in your answer since this integral is not easily computable. Note that the arbitrary constant $C$ would come from actually computing the integral $I$, so you do not need to write it. 
+
+\subsection{Step 1}
+We will find an appropriate integrating factor $\mu(t)$. Multiply both sides of the equation by that factor, and express the left side as the derivative of a product. 
+
+
+\begin{align} 
+    \mu(t) 
+    &= e^{\int15t^{14}dt} \\
+    &= e^{t^{15}} 
+\end{align}
+
+
+\begin{align}
+    y' + 15t^{14}y &= t^{15}  \\
+    \implies y'e^{t^{15}} + 15t^{14}e^{t^{15}} &= t^{15}e^{t^{15}} \\
+    \implies \frac{d}{dt}[e^{t^{15}}y] &= t^{15}e^{t^{15}}.
+\end{align}
+
+\subsection{Step 2}
+We will use integration by parts to find the solution for the differential equation.
+
+\begin{align}
+    \implies e^{t^{15}}y &= \int t^{15}e^{t^{15}}dt\\
+    \implies e^{t^{15}}y &= \int t t^{14} e^{t^{15}} dt\\
+    \implies e^{t^{15}}y &= \frac{t}{15}e^{t^{15}}-\frac{1}{15}\int e^{t^{15}} dt\\
+    \implies e^{t^{15}}y &= \frac{t}{15}e^{t^{15}} - \frac{I}{15}.
+\end{align}
+
+So we finally have
+
+\begin{align}
+    y &= \frac{t}{15} - \frac{I}{15}e^{-t^{15}}.
+\end{align}
+
+\end{document}
